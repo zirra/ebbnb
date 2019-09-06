@@ -18,12 +18,32 @@ export default {
   },
   mounted () {
     let tcity = this.$route.params.city
-    console.log(tcity)
-    this.actGetEvents(this.city)
+
+    try {
+      tcity = tcity.toLowerCase()
+    } catch (e) {
+      tcity = this.city
+    }
+    if(tcity === undefined) {
+      this.actSetCity(this.city)
+      this.actGetEvents(this.city)
+    } else {
+      if(tcity == this.city) {
+        this.actSetCity(this.city)
+        this.actGetEvents(this.city)
+      } else {
+        this.actSetCity(tcity)
+        this.actGetEvents(tcity)
+      }
+    }
+
+    
+    
   },
   methods: {
     ...mapActions([
-      'actGetEvents'
+      'actGetEvents',
+      'actSetCity'
     ])
   },
   computed: {

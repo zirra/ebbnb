@@ -1,5 +1,6 @@
 // import { api } from '@/utils/api'
-// import { storage } from '@/utils/storage'
+import { storage } from '@/utils/storage'
+
 const moment = require ('moment')
 
 const state = {
@@ -15,7 +16,10 @@ const mutations = {
 }
 
 const actions = {
-
+  actSetCity: ({commit}, city) => {
+    commit('setCity', city)
+    storage.storeValue('city', city)
+  }
 }
 
 const getters = {
