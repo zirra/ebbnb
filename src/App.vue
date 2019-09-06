@@ -9,23 +9,27 @@
 </template>
 
 <style>
+html, body { width: 100%; height: 100%;}
+* { padding: 0; margin: 0}
+* { padding: 0; margin: 0; box-sizing: border-box; }
+
+.centered { text-align: center; }
+.lefted { text-align: left; }
+.righted { text-align: right; }
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: 400;
 }
 </style>

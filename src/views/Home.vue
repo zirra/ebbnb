@@ -1,18 +1,37 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>Anonymous: {{isAnonymous}}</p>
+    <p>{{today}}</p>
+    <feature-view/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Feature from '@/components/Featured'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    'feature-view': Feature
+  },
+  mounted () {
+    let tcity = this.$route.params.city
+    console.log(tcity)
+    this.actGetEvents(this.city)
+  },
+  methods: {
+    ...mapActions([
+      'actGetEvents'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'isAnonymous',
+      'today',
+      'city'
+    ])
   }
 }
 </script>
